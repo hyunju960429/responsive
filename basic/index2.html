@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {background-color: rgb(192, 224, 192);}
+        h1::before {content:"1. ";}
+        h1::after {content:"- 기본";}
+
+        /* 화면의 너비가 -- 576px~ */
+        @media (min-width:576px){
+            body {background-color: rgb(12, 12, 12);color: #fff;}
+            h1::before {content:"1. ";}
+            h1::after {content:"- 0~576px";}
+        }
+        /* 화면의 너비가 -- 768px~*/
+        @media (min-width:768px){
+            body {background-color: rgb(33, 37, 33);color: #fff;}
+            h1::before {content:"2. ";}
+            h1::after {content:"- 768px~";}
+        }
+        /* 화면의 너비가 -- 960px~ */
+        @media (min-width:960px){
+            body {background-color: rgb(41, 51, 41);color: #fff;}
+            h1::before {content:"3. ";}
+            h1::after {content:"- 768px~959px";}
+        }
+        /* 화면의 너비가 -- 1024px~*/
+        @media (min-width:1024px){
+            body {background-color: rgb(65, 83, 65);color: #fff;}
+            h1::before {content:"4. ";}
+            h1::after {content:"- 960px~1023px";}
+        }
+        /* 화면의 너비가 -- 1280px~*/
+        @media (min-width:1280px){
+            body {background-color: rgb(146, 170, 146);}
+            h1::before {content:"5. ";}
+            h1::after {content:"- ";}
+        }
+        
+        
+        
+        
+    </style>
+</head>
+<body>
+    <h1>💚미디어쿼리(Media Query)</h1>
+    <p>미디어쿼리는 화면 크기에 따른 각각의 속성값을 지정하여, 여러가지 화면을 구성하는 기술이다.</p>
+    <p>@media only all and (조건문){실행문}</p>
+    <ul>
+        <li>@media : 미디어쿼리가 시작됨을 표시합니다.</li>
+        <li>only : 미디어쿼리 구문을 해석하라는 명령어입니다.(생략가능)</li>
+        <li>all : 미디어쿼리 구문을 해석하라는 명령어입니다.(생략가능)
+            <ul>
+                <li>all : 모든 미디어 유형에서 사용할 css를 정의합니다.</li>
+                <li>print : 인쇄장치에서 사용할 css를 정의합니다.</li>
+                <li>screens : 컴퓨터 스크린에서 사용할 css를 정의합니다.</li>
+                <li>aural : 화면을 읽어 소리로 출력해 주는 장치에서 사용할 css를 정의합니다.</li>
+                <li>tv : TV에서 사용할 css를 정의합니다.</li>
+                <li>handheld : 손에 들고 다니는 장치에서 사용할 css를 정의합니다.</li>
+                <li>projection : 프로젝트를 위한 css를 정의합니다.</li>
+            </ul>
+        </li>
+        <li>and : 앞과 뒤의 조건을 나타냅니다.(생략가능)<br/>
+            ex-> @media screens (min-width:400px) and (max-width:900px){실행문}  //400~900사이<br/>
+            ex-> @media screens (max-width:900px){실행문} //최대넓이 900 = 900이하
+
+        </li>
+        <li>조건문 : 해당 조건을 설정 할 수 있습니다.</li>
+        <li>실행문 : 조건에 따른 실행을 설정합니다.</li>
+    </ul>
+</body>
+</html>

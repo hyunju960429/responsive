@@ -1,0 +1,5 @@
+@charset "UTF-8";
+
+@import url(reset.css);
+@import url('reset.css'); /* 둘 다 가능 */
+
