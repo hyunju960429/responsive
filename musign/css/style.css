@@ -1,0 +1,860 @@
+@charset "UTF-8";
+
+/* @import url(reset.css); */
+@import url('reset.css'); /* 둘 다 가능 */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
+@import url('https://fonts.cdnfonts.com/css/handelgothic-tl');
+
+/* font-family: 'Dancing Script', cursive;
+font-family: 'Noto Sans KR', sans-serif;
+font-family: 'HandelGothic TL', sans-serif;
+*/
+
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 14px;
+    color: #333;
+}
+
+.en {
+    font-family: 'HandelGothic TL', sans-serif;
+}
+.en_s {
+    font-family: 'Dancing Script', cursive;
+}
+
+.clearfix::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+/* inner-넓이에 대한 가이드 */
+.inner {
+    width: 1320px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+.inner .box {
+    float: left;
+    width: 50%;
+}
+
+/* ---------------------menuOpen------------------------- */
+.menuOpen {}
+.menuOpen .open {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 0;
+    border: none;
+    background: none;
+    padding: 30px 22px;
+    z-index: 100;
+}
+.menuOpen .open:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    right: -100%;
+    background-color: #f5f5f5;
+    z-index: -1;
+    transition: 0.3s;
+}
+.menuOpen .open:hover:before {
+    right: 0;
+}
+
+.menuOpen .open img {
+
+}
+
+.menuOpen .menuWrap {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 100;
+    background-color: #eee;  
+    width: 100%;
+    height: 100%; 
+}
+.menuOpen .menuWrap a.close {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 30px;
+}
+.menuOpen .menuWrap a img {}
+
+/* menuWrap */
+.menuOpen .menuWrap {
+    width: 0;
+    opacity: 0;
+    transform: skewY(-40deg);
+    transition: 0.1s;
+}
+.menuOpen .menuWrap.on {
+    width: 100%;
+    opacity: 1;
+    transform: skewY(0deg);
+    transition: 0.5s;
+}
+
+/* ---------------원그리기--------------- */
+.menuOpen .menuWrap.on:before {
+    content: "";
+    width: 700px;
+    height: 700px;
+    background-color: #fff;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    left: 30%;
+    animation: circle 1.8s;
+}
+.menuOpen .menuWrap a.close.en {
+    top: 50px;
+    left: auto;
+    right: 50px;
+    font-size: 25px;
+    border-bottom: 1px solid #888;
+    color: #888;
+}
+@keyframes circle {
+    0% {opacity: 0;}
+    40% {opacity: 0; transform: translateY(-50%) scale(0.5);}
+    100% {opacity: 1; transform: translateY(-50%) scale(1);}
+}
+/* ---------------//원그리기//--------------- */
+
+.menuOpen ul {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 25%;
+    font-size: 60px;
+    color: #ccc;
+}
+.menuOpen ul li {
+    margin-bottom: 20px;
+}
+.menuOpen ul li a {
+    position: relative;
+    display: inline-block;  /* //hover의 transform을 적용하기 위해 block요소가 되어야한다 */
+    transition: 0.3s;
+}
+.menuOpen ul li a:hover {
+    transform: translateX(30px);
+    color: #333;
+}
+.menuOpen ul li a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0%;
+    height: 2px;
+    background-color: #333;
+    transition: 0.3s;
+}
+.menuOpen ul li a:hover:after {
+    width: 100%;
+}
+.menuOpen ul li a span {}
+.menuOpen ul li a span b {}
+
+
+
+/* ------------------------header--------------------------- */
+header {}
+.innerheader {
+    max-width: 1720px;
+    margin: 0 auto;
+    height: 110px;
+    line-height: 110px;
+}
+.innerheader .logo {
+    float: left;
+}
+.innerheader .logo a {
+    display: block;
+}
+.innerheader .logo a img {}
+.innerheader .mainmenu {
+    position: relative;
+    float: right;
+}
+/* gnb */
+.innerheader .mainmenu .bar {
+    position: absolute;
+    left: 0;
+    bottom: 40px;
+    width: 0px;
+    height: 3px;
+    background-color: #e7e7e7;
+    transition: 0.2s;
+}
+.innerheader .mainmenu .gnb {
+    float: left;
+}
+.innerheader .mainmenu .gnb li {
+    float: left;
+    margin: 0 20px;
+}
+.innerheader .mainmenu .gnb li a {
+    display: block;
+    color: #555;
+}
+/* sns */
+.innerheader .sns {
+    float: left;
+    margin-left: 300px;
+}
+.innerheader .sns li {
+    float: left;
+    margin: 0 20px;
+}
+.innerheader .sns li a {
+    display: block;
+    padding: 0 10px;
+}
+.innerheader .sns li a img {}
+
+/* ---------------visual--------------------- */
+.visual {
+    max-width: 1720px;
+    margin: 0 auto;
+}
+.visual .mainImg {
+    float: left;
+    width: 50%;
+}
+.visual .mainImg .img img {
+    width: 90%;
+}
+
+.visual .mainText {
+    float: left;
+    width: 50%;
+    padding-top: 180px;
+}
+.visual .mainText .tit {
+    font-size: 72px;
+}
+.visual .mainText .tit span {}
+.visual .mainText .tit span.gray {
+    color: #ccc;
+}
+.visual .mainText .txt {
+    padding: 50px 0 0 70px;
+}
+.jurnal {
+    position: relative;
+    padding: 190px 0 120px;
+}
+.jurnal .scroll {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    font-size: 10px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    padding-top: 90px;
+    writing-mode: vertical-rl;
+}
+.jurnal .scroll:before {
+    position: absolute;
+    content: "";
+    height: 75px;
+    width: 1px;
+    background-color: #333;
+    top: 0;
+    left: 4px;
+}
+.jurnal .box img {
+    padding-top: 100px;
+}
+.jurnal .box .tit {
+    margin-bottom: 40px;
+}
+.jurnal .box ul {}
+.jurnal .box ul li {
+    display: flex;
+    margin-bottom: 30px;
+}
+.jurnal .box ul li h3 {
+    width: 22%;
+}
+.jurnal .box ul li p {
+    width: 78%;
+    color: #888;
+    line-height: 1.4;
+}
+.jurnal .moreBtn {
+    margin-left: 22%;
+}
+
+/* ----------------타이틀, 텍스트-------------------- */
+.tit {
+    font-size: 50px;
+    line-height: 1.1;
+    font-weight: normal;
+}
+.tit span {
+    display: block;
+}
+.tit span b {
+    font-weight: normal;
+}
+.tit .en_s {
+    font-size: 22px;
+    font-weight: normal;
+}
+.txt p {
+    color: #888;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+.txt p b {
+    font-weight: normal;
+}
+
+/* --------------------service---------------- */
+.service {
+    padding: 190px 0;
+}
+.service .box .img {
+    margin-top: 60px;
+}
+.service .box .img img {
+    width: 100%;
+}
+.service .box.design {
+    margin-top: -40%;
+    width: 45%;
+    border-top: 1px solid #c4e5ea;
+    padding-top: 60px;
+}
+
+/* service영역이 화면에 보일시 body 전체 배경색 바꾸기 */
+body {
+    transition: 0.4s;
+}
+body.on {
+    background-color: #e8fcff;
+}
+.service .img.animate__motion::after {background-color: #e8fcff;}
+
+
+/* ------------------customer------------------------- */
+.customer {
+    background: url(../img/img_04.jpg) no-repeat center;
+    background-size: cover;
+    background-attachment: fixed;
+    text-align: center;
+    padding: 160px 0;
+}
+.customer .tit {
+    color: #fff;
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+.customer .tit span {}
+
+.customer .txt {
+    color: #777;
+}
+
+
+
+
+/* --------------------team------------------------- */
+.team {
+    position: relative;
+    padding: 190px 0;
+}
+.team .box.left {
+    text-align: right;
+    padding-right: 80px;
+    box-sizing: border-box;
+}
+.team .box .tit {
+    margin-bottom: 40px;
+}
+.team .box .txt {
+    margin: 30px 0;
+}
+.team .box img {
+    margin-top: 100px;
+}
+
+
+/* -----------------footer--------------- */
+footer {
+    width: 1320px;
+    margin: 0 auto;
+}
+footer .top {}
+footer .top .tit {
+    color: #e6e6e6;
+    font-size: 32px;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+footer .bottom {
+    border-top: 1px solid #e6e6e6;
+    padding: 40px 0 100px;
+}
+footer .bottom ul {
+    display: flex;
+}
+footer .bottom ul li {
+    width: 23%;
+    color: #aaa;
+    font-size: 12px;
+    line-height: 2;
+}
+footer .bottom ul li:first-child {
+    width: 31%;
+    font-size: 28px;
+    color: #000;
+}
+footer .bottom ul li b {
+    color: #333;
+}
+
+/* read more */
+.moreBtn {
+    position: relative;
+    display: inline-block;
+    margin-top: 20px;
+    color: #333;
+    transform: skewX(-15deg) translateX(5px);
+    transition: 0.2s;
+    padding-left: 50px;
+}
+.moreBtn:hover {
+    transform: skewX(0) translateX(0);
+    font-weight: bold;
+}
+.moreBtn:before {
+    content: "";
+    width: 42px;
+    height: 1px;
+    background-color: #333;
+    position: absolute;
+    left: 0;
+    top: 53%;
+}
+
+/* -------------------텍스트 애니--------------------- */
+.tit.animate__motion span {
+    overflow: hidden;
+}
+.tit.animate__motion span b {
+    display: block;
+    animation: textAni 1.3s;
+}
+
+@keyframes textAni {
+    0% {opacity: 0;}
+    30% {opacity: 1; transform: translate(0, 40px) skewY(8deg);
+    transform-origin: top left; /* 기울기의 기준위치를 중앙에서 좌측상단으로 변경 */
+    }
+    100% {opacity: 1; transform: none;}
+}
+
+/* -------------------이미지 애니------------------ */
+.img.animate__motion {
+    position: relative;
+    animation: imgAni 1s;
+}
+@keyframes imgAni {
+    0% {transform: translateY(50px);}
+    100% {transform: translateY(0px);}
+}
+.img.animate__motion::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background-color: #fff;
+    animation: mask 1.2s;
+}
+.team .img.animate__motion::after {
+    display: none;
+}
+@keyframes mask {
+    0% {height: 90%;}
+    100% {height: 0;}
+}
+
+
+/* ------------------svg ani------------------------ */
+.jurnal {
+    position: relative;
+}
+.jurnal .circleBox {
+    width: 700px;
+    position: absolute;
+    right: 14%;
+    top: 100px;
+    z-index: -1;
+}
+.circleBox .svgAni path {
+    stroke-dasharray: 2112px;
+    stroke-dashoffset: 0px;
+}
+.circleBox.animate__motion .svgAni path {
+    animation: dash 1.5s;
+}
+
+
+
+
+.team .circleBox {
+    width: 700px;
+    position: absolute;
+    left: 20%;
+    top: -50px;
+    z-index: -1;
+}
+
+@keyframes dash {
+    0% {stroke-dashoffset: 2112px;}
+    100% {stroke-dashoffset: 0px;}
+}
+
+
+
+
+/* 💛미디어쿼리💛 */
+/* -------------pc(1401~1720)------------------- */
+@media (max-width:1720px){
+    /* visual */
+    .innerheader {
+        max-width: 100%;
+        padding: 0 30px;
+        box-sizing: border-box;
+    }
+    .innerheader .sns {
+        margin-left: 200px;
+    }
+    .visual .mainText {
+        padding-top: 150px;
+    }
+    .visual .mainText .tit {
+        font-size: 62px;
+    }
+    /* journal */
+
+}
+
+/* -------------노트북,태블릿(1025~1400)------------------- */
+@media (max-width:1400px){
+    /* visual */
+    .innerheader .sns li {
+        margin: 0 5px;
+    }
+    .visual .mainImg .img img {
+        width: 100%;
+    }
+    .visual .mainText {
+        padding-top: 100px;
+    }
+    .visual .mainText .tit {
+        font-size: 46px;
+    }
+    .visual .mainText .txt {
+        padding: 20px 0 0 0px;
+    }
+    /* journal */
+    .inner {
+        width: 100%;
+        padding: 0 30px;
+        box-sizing: border-box;
+    }
+    .jurnal .scroll {
+        display: none;
+    }
+    .jurnal .circleBox {
+        right: -10%;
+        top: 0;
+    }
+    .jurnal {
+        overflow: hidden;
+    }
+    .jurnal .box img {
+        width: 90%;
+    }
+    /* service */
+    .service {
+        padding: 80px 0;
+    }
+    .service .txt {
+        margin-top: 20px;
+    }
+    .service .box .img img {
+        width: 70%;
+        margin: 50px auto 0;
+        display: block;
+    }
+    /* footer */
+    footer {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 0 30px;
+    }
+
+}
+
+/* -------------태블릿(767~1024)------------------- */
+@media (max-width:1024px){
+    /* visual */
+    .innerheader {
+        height: 80px;
+        line-height: 80px;
+    }
+    .innerheader .mainmenu {
+        display: none;
+    }
+    .menuOpen .open {
+        top:0;
+        width: 70px;
+        height: 80px;
+        transform: none;
+        padding: 0;
+    }
+    .menuOpen .open:before {
+        display: none;
+    }
+    .visual .mainImg {
+        float: none;
+        width: 100%;
+    }
+    .visual .mainText {
+        float: none;
+        width: 100%;
+        padding: 50px 0 0 30px;
+        box-sizing: border-box;
+    }
+    /* journal */
+    .inner .box {
+        width: 100%;
+        float: none;
+    }
+    .jurnal {
+        padding: 80px 0;
+    }
+    .jurnal .box img {
+        width: 80%;
+    }
+    .jurnal .circleBox {
+        top: 200px;
+    }
+    .img.animate__motion {
+        text-align: center;
+        margin-bottom: 50px;
+    }
+    /* service */
+    .service .box.design {
+        margin-top: 50px;
+        width: 100%;
+    }
+    .service .box.design .img img {
+        margin: 50px 0 0;
+    }
+    .service .box.design .tit {
+        font-size: 35px;
+    }
+    /* customer */
+    .customer {
+        padding: 120px 0;
+    }
+    .customer .tit {
+        font-size: 30px;
+    }
+    /* team */
+    .team {
+        overflow: hidden;
+        padding: 80px 0;
+    }
+    .team .circleBox {
+        left: 15%;
+    }
+    .team .box.left {
+        padding-right: 0;
+    }
+    .team .box img {
+        display: block;
+        width: 100%;
+        margin: 70px auto 0;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .team .box.left img {
+        width: 70%;
+    }
+    .team .box:last-child {
+        width: 90%;
+        margin: 70px auto 0;
+    }
+    .team .box:last-child img {
+        margin: 50px 0;
+    }
+    .team .circleBox {
+        left: 4%;
+    }
+    /* footer */
+    footer .bottom ul li:first-child {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+    footer .bottom ul {
+        flex-wrap: wrap;
+    }
+    footer .bottom ul li {
+        width: 33.33%;
+    }
+}
+
+/* -------------모바일(321~766)------------------- */
+@media (max-width:767px){
+    /* visual */
+    .innerheader {
+        height: 60px;
+        line-height: 60px;
+    }
+    .menuOpen .open {
+        width: 52px;
+        height: 60px;
+    }
+    .menuOpen .open img {
+        height: 38px;
+    }
+    .menuOpen .menuWrap a.close.en {
+        display: none;
+    }
+    .menuOpen .menuWrap a.close {
+        top: 26px;
+        transform: none;
+        left: 30px;
+    }
+    .visual {
+        padding: 0 20px;
+    }
+    .visual .mainText .tit {
+        font-size: 30px;
+    }
+    /* journal */
+    .jurnal {
+        padding: 50px 0;
+    }
+    .jurnal .circleBox {
+        top: 10%;
+        right: -6%;
+    }
+    .jurnal .box img {
+        width: 100%;
+    }
+    .img.animate__motion {
+        margin-bottom: 20px;
+    }
+    .jurnal .box .tit {
+        margin-bottom: 20px;
+        font-size: 37px;
+    }
+    .jurnal .box ul li {
+        margin-bottom: 20px;
+        flex-wrap: wrap;
+    }
+    .jurnal .box ul li h3 {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    .jurnal .box ul li p {
+        width: 100%;
+        font-size: 12px;
+    }
+    .jurnal .moreBtn {
+        margin-left: 0;
+    }
+    /* service */
+    .service {
+        padding: 50px 0;
+    }
+    .service .box .img img {
+        width: 100%;
+        margin: 30px auto 0
+    }
+    .service .box.design {
+        padding-top: 50px;
+    }
+    .service .box.design .tit {
+        font-size: 25px;
+    }
+    .service .tit {
+        font-size: 37px;
+    }
+    /* customer */
+    .customer {
+        padding: 80px 20px;
+    }
+    .customer .tit {
+        font-size: 25xp;
+    }
+    /* team */
+    .team .box .txt {
+        margin: 30px 0 10px;
+    }
+    .team .box img {
+        margin: 50px auto 0;
+    }
+    .team:nth-child(2) .box img {
+        margin: 30px auto 0;
+    }
+    .team .tit {
+        font-size: 25px;
+    }
+    .team .tit .en_s {
+        font-size: 16px;
+    }
+    /* footer */
+    footer {
+        padding: 0 20px;
+    }
+    footer .top .tit {
+        margin-bottom: 30px;
+    }
+    footer .bottom ul li:first-child {
+        font-size: 20px;
+    }
+    footer .bottom ul li {
+        width: 100%;
+        margin-bottom: 12px;
+    }
+}
+
+/* -------------모바일(0~320)------------------- */
+@media (max-width:320px){
+    .visual .mainText {
+        padding: 50px 0 0 0;
+    }
+    .tit .en_s {
+        font-size: 16px;
+    }
+    .visual .mainText .tit {
+        font-size: 27px;
+    }
+    .moreBtn {
+        font-size: 11px;
+    }
+}
